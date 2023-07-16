@@ -1,0 +1,18 @@
+export const ColorPresets = {
+  primaryCTA: '#6231AD',
+  secondaryCTA: '#452C55',
+  tertiaryCTA: '#D2BAF5',
+  gold: '#FFD600',
+  goldText: '#FFA600',
+  primaryText: '#333333',
+  primaryTextOpacity: '#252A4866',
+  secondaryText: '#727682',
+  tertiaryText: '#B5C0C8',
+  opacityCTA: '#D2BAF533',
+  failure: '#FE4190',
+  success: '#2DABAD',
+  success2: '#48C547',
+  danger: '#F73232',
+  white: '#FFFFFF',
+  transparent: 'transparent',
+};
