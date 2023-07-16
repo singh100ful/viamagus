@@ -13,6 +13,7 @@ export const BadgeMolecule: React.FC<BadgeMoleculeProps> = ({item}) => {
   return (
     <View
       style={{
+        backgroundColor: ColorPresets.white,
         padding: scalePresets.baseScale,
         flexDirection: 'row',
         borderColor: ColorPresets.tertiaryText,

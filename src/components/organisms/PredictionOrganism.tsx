@@ -2,10 +2,11 @@ import {Picker} from '@react-native-picker/picker';
 import {ColorPresets} from '@src/theme/color';
 import {scalePresets} from '@src/theme/metrics';
 import * as React from 'react';
-import {Pressable, StyleSheet, View} from 'react-native';
+import {Platform, Pressable, StyleSheet, View} from 'react-native';
 import {ButtonAtom} from '../atoms/ButtonAtom';
 import {TextAtom} from '../atoms/TextAtom';
 import {GoldAtom} from '../atoms/GoldAtom';
+import {defaultTexts} from '@src/theme/fonts';
 
 interface PredictionOrganismProps {
   data: string;
@@ -35,16 +36,32 @@ export const PredictionOrganism: React.FC<PredictionOrganismProps> = ({
             preset="bodySubtitle2"
             style={{textTransform: 'uppercase'}}
           />
-          <Picker
-            selectionColor={ColorPresets.opacityCTA}
-            selectedValue={select}
-            onValueChange={itemValue => setSelect(itemValue)}>
-            {prediction.map((data, index) => {
-              return (
-                <Picker.Item key={index} label={data.toString()} value={data} />
-              );
-            })}
-          </Picker>
+          <View
+            style={{
+              backgroundColor:
+                Platform.OS === 'android'
+                  ? ColorPresets.opacityCTA
+                  : ColorPresets.white,
+              borderRadius: scalePresets.smallScale,
+            }}>
+            <Picker
+              style={{
+                ...defaultTexts.bodyBold,
+              }}
+              selectionColor={ColorPresets.opacityCTA}
+              selectedValue={select}
+              onValueChange={itemValue => setSelect(itemValue)}>
+              {prediction.map((data, index) => {
+                return (
+                  <Picker.Item
+                    key={index}
+                    label={data.toString()}
+                    value={data}
+                  />
+                );
+              })}
+            </Picker>
+          </View>
           <View style={styles.rowStyle}>
             <View>
               <TextAtom text="You can win" preset="captiond" />
@@ -57,7 +74,13 @@ export const PredictionOrganism: React.FC<PredictionOrganismProps> = ({
             </View>
           </View>
         </View>
-        <View>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: scalePresets.baseScale,
+            left: scalePresets.baseScale,
+            width: '100%',
+          }}>
           <ButtonAtom
             title="Submit my prediction"
             onPress={() => onClose(false)}

@@ -48,7 +48,7 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({}) => {
       <HeaderAtom title="Profile" rightIcon="chatbox" />
       <ScrollView
         contentContainerStyle={{
-          height: '300%',
+          height: '200%',
           flexGrow: 1,
           overflow: 'scroll',
         }}>

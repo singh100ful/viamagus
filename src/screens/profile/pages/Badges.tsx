@@ -10,7 +10,7 @@ interface BadgesProps {}
 
 export const Badges: React.FC<BadgesProps> = ({}) => {
   return (
-    <ContainerAtom style={{backgroundColor: ColorPresets.white}}>
+    <ContainerAtom style={{backgroundColor: ColorPresets.opacityCTA}}>
       <View
         style={{
           gap: scalePresets.mediumScale,
